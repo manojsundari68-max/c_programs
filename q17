@@ -1,0 +1,19 @@
+//Safe strcpy
+
+#include <stdio.h>
+#include <string.h>
+
+void safeCopy(char dest[], char src[], int size) {
+    strncpy(dest, src, size - 1);
+    dest[size - 1] = '\0';
+}
+
+int main() {
+    char src[] = "Hello World";
+    char dest[20];
+
+    safeCopy(dest, src, sizeof(dest));
+
+    printf("%s", dest);
+    return 0;
+}
