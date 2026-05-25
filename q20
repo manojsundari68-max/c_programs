@@ -1,0 +1,23 @@
+//Menu-driven Calculator using Array of Function Pointers
+
+#include <stdio.h>
+
+int add(int a,int b){ return a+b; }
+int sub(int a,int b){ return a-b; }
+int mul(int a,int b){ return a*b; }
+int divi(int a,int b){ return a/b; }
+
+int main() {
+    int (*op[4])(int,int) = {add,sub,mul,divi};
+    int choice,a,b;
+
+    printf("1.Add 2.Sub 3.Mul 4.Div\n");
+    scanf("%d",&choice);
+
+    printf("Enter two numbers: ");
+    scanf("%d%d",&a,&b);
+
+    printf("Result = %d", op[choice-1](a,b));
+
+    return 0;
+}
