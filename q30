@@ -1,0 +1,28 @@
+//Dynamic Item Array (Add/Delete)
+
+#include <stdio.h>
+#include<stdlib.h>
+
+struct item{
+    int id;
+};
+
+int main()
+{
+   int n;
+   scanf("%d",&n);
+   struct item *arr=(struct item*)malloc(n*sizeof(struct item));
+   for(int i=0;i<n;i++){
+       scanf("%d",&arr[i].id);
+   }
+   int pos;
+   scanf("%d",&pos);
+   for(int i=pos;i<n-1;i++){
+       arr[i]=arr[i+1];
+   }
+   n--;
+   for(int i=0;i<n;i++){
+       printf("%d ",arr[i].id);
+   }
+   
+}
