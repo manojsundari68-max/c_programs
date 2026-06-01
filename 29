@@ -1,0 +1,23 @@
+//Update Student Marks Using Pointer
+
+#include <stdio.h>
+#include<stdlib.h>
+
+struct student{
+    int roll;
+    char name[20];
+    float marks;
+};
+void update(struct student *s){
+    s->marks+=10;
+}
+int main(){
+    struct student s;
+    scanf("%d",&s.roll);
+    scanf("%s",s.name);
+    scanf("%f",&s.marks);
+    update(&s);
+    printf("%d ",s.roll);
+    printf("%s ",s.name);
+    printf("%.2f",s.marks);
+}
