@@ -1,0 +1,40 @@
+//Union vs Structure Memory Usage
+
+#include <stdio.h>
+#include <string.h>
+
+// Union definition
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+// Structure definition
+struct DataStruct {
+    int i;
+    float f;
+    char str[20];
+};
+
+int main() {
+    union Data u;
+    struct DataStruct s;
+
+    printf("Size of union Data = %lu bytes\n", sizeof(u));
+    printf("Size of struct DataStruct = %lu bytes\n", sizeof(s));
+
+    // Store integer
+    u.i = 10;
+    printf("\nUnion Integer: %d\n", u.i);
+
+    // Store float
+    u.f = 3.14;
+    printf("Union Float: %.2f\n", u.f);
+
+    // Store string
+    strcpy(u.str, "Hello");
+    printf("Union String: %s\n", u.str);
+
+    return 0;
+}
