@@ -1,0 +1,64 @@
+//Nested Structure (Order contains Customer and Item)
+
+#include <stdio.h>
+
+// Customer structure
+struct Customer {
+    int customerId;
+    char name[50];
+};
+
+// Item structure
+struct Item {
+    int itemId;
+    char itemName[50];
+    float price;
+};
+
+// Order structure containing Customer and Item
+struct Order {
+    int orderId;
+    struct Customer customer;
+    struct Item item;
+};
+
+// Function to print order details
+void printOrderDetails(struct Order order) {
+    printf("\n----- Order Details -----\n");
+    printf("Order ID      : %d\n", order.orderId);
+
+    printf("\nCustomer Details:\n");
+    printf("Customer ID   : %d\n", order.customer.customerId);
+    printf("Customer Name : %s\n", order.customer.name);
+
+    printf("\nItem Details:\n");
+    printf("Item ID       : %d\n", order.item.itemId);
+    printf("Item Name     : %s\n", order.item.itemName);
+    printf("Item Price    : %.2f\n", order.item.price);
+}
+
+int main() {
+    struct Order order;
+
+    printf("Enter Order ID: ");
+    scanf("%d", &order.orderId);
+
+    printf("Enter Customer ID: ");
+    scanf("%d", &order.customer.customerId);
+
+    printf("Enter Customer Name: ");
+    scanf("%s", order.customer.name);
+
+    printf("Enter Item ID: ");
+    scanf("%d", &order.item.itemId);
+
+    printf("Enter Item Name: ");
+    scanf("%s", order.item.itemName);
+
+    printf("Enter Item Price: ");
+    scanf("%f", &order.item.price);
+
+    printOrderDetails(order);
+
+    return 0;
+}
