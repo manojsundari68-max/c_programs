@@ -1,0 +1,48 @@
+//Order Status Using Enum
+
+#include <stdio.h>
+
+// Define enum
+enum Status {
+    PENDING,
+    SHIPPED,
+    DELIVERED
+};
+
+int main() {
+    enum Status orderStatus = PENDING;
+    int choice;
+
+    printf("Current Order Status: PENDING\n");
+
+    printf("\nSelect New Status:\n");
+    printf("0. PENDING\n");
+    printf("1. SHIPPED\n");
+    printf("2. DELIVERED\n");
+    printf("Enter choice: ");
+    scanf("%d", &choice);
+
+    if(choice >= 0 && choice <= 2) {
+        orderStatus = choice;
+
+        printf("\nUpdated Order Status: ");
+
+        switch(orderStatus) {
+            case PENDING:
+                printf("PENDING\n");
+                break;
+
+            case SHIPPED:
+                printf("SHIPPED\n");
+                break;
+
+            case DELIVERED:
+                printf("DELIVERED\n");
+                break;
+        }
+    } else {
+        printf("Invalid Choice!\n");
+    }
+
+    return 0;
+}
