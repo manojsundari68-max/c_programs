@@ -1,0 +1,49 @@
+//Leverage math.h to compute statistics (mean, variance, std dev) for double arrays.
+
+#include <stdio.h>
+#include <math.h>
+
+double mean(double arr[], int n) {
+    double sum = 0.0;
+
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+
+    return sum / n;
+}
+
+double variance(double arr[], int n) {
+    double avg = mean(arr, n);
+    double sum = 0.0;
+
+    for (int i = 0; i < n; i++) {
+        sum += pow(arr[i] - avg, 2);
+    }
+
+    return sum / n;
+}
+
+double standardDeviation(double arr[], int n) {
+    return sqrt(variance(arr, n));
+}
+
+int main() {
+    int n;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    double arr[n];
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &arr[i]);
+    }
+
+    printf("\nMean = %.2lf\n", mean(arr, n));
+    printf("Variance = %.2lf\n", variance(arr, n));
+    printf("Standard Deviation = %.2lf\n", standardDeviation(arr, n));
+
+    return 0;
+}
